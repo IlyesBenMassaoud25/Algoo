@@ -1,0 +1,54 @@
+PROCEDURE dotProduct(vec1, vec2)
+VAR
+    ps,i :INTEGER; 
+BEGIN
+    ps := 0 ;
+FOR i FROM 0 TO (n-1) STEP 1  DO
+    ps := ps + vec1[i] * vec2[i];
+    i:= i + 1;
+END_FOR
+    write ('Dot Product = ',ps);
+END
+
+
+PROCEDURE insertionSort(arr, n)
+VAR
+    i, key, j:INTEGER; 
+BEGIN
+    FOR i FROM 1 TO (n-1) STEP 1  DO
+        key := arr[i]; 
+        j := i - 1; 
+        WHILE (j >= 0 and arr[j] > key) DO
+            arr[j + 1] := arr[j]; 
+            j := j - 1;
+        END_WHILE
+        arr[j + 1] := key; 
+        i := i + 1;
+    END_FOR
+END
+
+
+//***********Function for size of array******
+PROCEDURE printArray(arr, n)
+VAR
+    i:integer; 
+BEGIN
+    FOR i FROM 0 TO (n-1) STEP 1  DO
+         write(arr[i] + " "); 
+        i := i + 1;
+    END_FOR
+END 
+
+
+
+//****** Algorithm *******
+ALGORITHM sorting-search
+VAR
+     arr : array_of integer[n]; 
+     n : integer;
+BEGIN
+    arr := [12, 11, 13, 5, -1]; 
+    n := arr.length; 
+    insertionSort(arr, n); 
+    printArray(arr, n); 
+END
